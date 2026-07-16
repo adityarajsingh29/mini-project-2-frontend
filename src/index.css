@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper dark:bg-ink text-slate-900 dark:text-slate-100 font-body antialiased transition-colors duration-300;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+  ::selection {
+    @apply bg-signal/30;
+  }
+  :focus-visible {
+    outline: 2px solid #4FD1C5;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Card: the recurring surface treatment across the dashboard */
+  .card {
+    @apply bg-paper-card dark:bg-ink-card border border-paper-line dark:border-ink-line rounded-2xl transition-colors duration-300;
+  }
+
+  .card-hover {
+    @apply hover:border-signal/40 hover:shadow-glow transition-all duration-300;
+  }
+
+  /* Signature texture: a quiet grid of "commit squares" used sparingly
+     as a background motif, echoing GitHub's own contribution graph. */
+  .commit-grid {
+    background-image: radial-gradient(currentColor 1px, transparent 1px);
+    background-size: 14px 14px;
+  }
+
+  .stat-value {
+    @apply font-mono font-semibold tabular-nums;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-signal text-ink px-4 py-2.5 font-medium text-sm hover:brightness-110 active:brightness-95 transition disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-paper-line dark:border-ink-line px-4 py-2.5 font-medium text-sm hover:border-signal/50 hover:text-signal transition disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .input-base {
+    @apply w-full rounded-xl border border-paper-line dark:border-ink-line bg-paper-raised dark:bg-ink-raised px-4 py-2.5 text-sm outline-none focus:border-signal/60 transition placeholder:text-muted;
+  }
+
+  .skeleton {
+    @apply animate-pulse bg-paper-line dark:bg-ink-line rounded-lg;
+  }
+}
